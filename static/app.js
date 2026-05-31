@@ -43,6 +43,7 @@ import spinnerModule from './js/spinner.js';
 import { initKeyboardShortcuts } from './js/keyboard-shortcuts.js';
 import { initSidebarLayout, syncRailSide } from './js/sidebar-layout.js';
 import { initSectionCollapse, initSectionDrag } from './js/section-management.js';
+import { maybeShowOnboarding } from './js/onboarding.js';
 
 const API_BASE = window.location.origin;
 window.themeModule = themeModule;
@@ -3871,6 +3872,7 @@ function startOdysseusApp() {
           try { window._odysseusRouteOpener(); } catch (_) {}
           window._odysseusRouteOpener = null;
         }
+        maybeShowOnboarding().catch(e => console.warn('Onboarding failed:', e));
       });
   } else {
     console.error('Session module not loaded!');
