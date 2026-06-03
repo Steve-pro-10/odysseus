@@ -2701,6 +2701,7 @@ function initializeEventListeners() {
           content.style.right = '';
           content.style.bottom = '';
           content.style.margin = '';
+          content.style.transform = '';  
         }
       }).observe(m, { attributes: true, attributeFilter: ['class'] });
 
@@ -2714,6 +2715,7 @@ function initializeEventListeners() {
         content.style.left = startLeft + 'px';
         content.style.top = startTop + 'px';
         content.style.margin = '0';
+        content.style.transform = 'none';
       }
 
       header.addEventListener('mousedown', (e) => {
